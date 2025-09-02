@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="form-group">
+
+          <div class="row">
+            <label for="">姓名</label>
+            <div class="col">
+              <input type="text" v-model="fName" class="form-control" placeholder="First name">
+            </div>
+            <div class="col">
+              <input type="text" v-model="lName" class="form-control" placeholder="Last name">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="">帳號</label>
+              <input type="text" v-model="account" class="form-control" placeholder="Account">
+            </div>
+          </div>
+
+          <div class="row">
+            <label for="">密碼</label>
+            <div class="col">
+              <input type="password" v-model="psd" class="form-control" placeholder="Password" :class="{red:isRed}">
+            </div>
+            <div class="col">
+              <input type="password" v-model="conpsd" class="form-control" placeholder="Confirm Password" :class="{red:isRed}">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              
+              <label for="">連絡電話</label>
+              <button type="submit" class="btn btn-warning" @click="addTel">新增電話</button>
+              <div v-for="item in telList">
+                <input type="text" class="form-control" placeholder="TellPhone" v-model="item.tel">
+                <button type="button" class="btn btn-danger" @click="remove(index)">刪除電話</button>
+              </div>
+              
+            </div>
+          </div>
+        
+          <button type="button" class="btn btn-primary" @click="send">送出</button>
+
+        </div>
+        
+        <div v-if="isShow">
+          <p>【申請資訊】</p>
+          <ul>
+            <li>姓名：{{fName}}{{lName}}</li>
+            <li>帳號：{{account}}</li>
+            <li>密碼：{{psd}}</li>
+            <li>連絡電話：
+              <ul>
+                <li v-for="item in telList">{{item.tel}}</li>
+              </ul>
+            </li>
+          </ul>
+          
+        </div>
+
+    </div>
+  
+    <script src="vue.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</html>

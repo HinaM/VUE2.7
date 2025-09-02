@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/9d0690b173.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+      <div class="catalog"><i class="fa-solid fa-clock-rotate-left" @click="open_list"></i></div>
+      
+      <!--
+      <div v-for="t in telBook" :key="t">{{t.tel}}</div>
+      -->
+      <div class="telBookTitle">聯絡人搜尋</div>
+      <div class="telBook">
+        
+        <div class="no_contact" v-if="telBook === '請輸入'">請輸入</div>
+        <div class="no_contact" v-else-if="telBook.length === 0">查無聯絡人</div>
+        <div v-else>
+          <div v-for="i in telBook" :key="i">{{i.name}},{{ i.tel }}</div>
+        </div>
+
+      </div>
+      
+      <!--
+      <div style="color: #fff;">{{telBook}}</div>
+      -->
+      <div class="input_num">{{display16}}</div>
+      
+      
+      <div class="container" style="max-width:480px;">
+        <div class="row row-cols-3 g-2">
+          <!-- 撥號數字 -->
+          <div class="col" v-for="d in dial" :key="d">
+            <button class="btn btn-primary w-100" :data-key="d" @click="press(d)">{{ d }}</button>
+          </div>
+      
+          <!-- 功能鍵 -->
+          <div class="col">
+            <button class="btn btn-outline-danger w-100" @click="clear">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+          <div class="col">
+            <button class="btn btn-success w-100" @click="go">
+              <i class="fa-solid fa-phone-flip"></i>
+            </button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-secondary w-100" @click="back">
+              <i class="fa-solid fa-delete-left"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      <div class="history_list pb-2" v-if="open_dial">
+        <div class="catalog"><i class="fa-solid fa-xmark" @click="close_list"></i></div>
+        <div v-if="history_true" class="no_history">尚無紀錄</div>
+        <div v-else v-for="(h,i) in history" :key="h">
+          {{i+1}},{{h.tel}},{{h.at}}
+        </div>
+
+      </div>
+      
+      
+      
+
+    </div>
+
+    
+  
+    <script src="vue.js"></script>
+
+</body>
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</html>

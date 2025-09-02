@@ -1,0 +1,122 @@
+*{
+  position: relative;
+}
+#app{
+    background-color: #292d3e;
+    width: 350px;
+    height: 500px;
+}
+.input_num{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: azure;
+}
+.no_contact{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(197, 197, 183);
+}
+.telBookTitle{
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+}
+.telBook{
+  padding: 5px 12px;
+  width: 100%;
+  height: 80px;
+  overflow-y: auto;
+  color: #fff;
+  word-break: break-word;
+  
+}
+button{
+    outline: none;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border: none !important;
+}
+.btn-primary{
+    background-color: #fff !important;
+    color: #292d3e !important;
+}
+table{
+    word-break: break-word;
+    white-space: normal;
+    text-align: center;
+    
+    
+}
+td{
+    vertical-align: middle;
+}
+.time_at{
+    font-size: 12px;
+}
+.history{
+    max-height: 240px;       /* 你要的視窗高度 */
+    overflow-y: auto;        /* 直向有滾動條 */
+    scrollbar-gutter: stable;         /* 橫向也能滾 */
+  }
+  .history table{ 
+    margin-bottom: 0; 
+    table-layout: fixed; 
+  }
+  .history th, .history td{ 
+    word-break: break-word; 
+  }
+  .history thead th{
+    position: sticky;
+    top: 0;
+    background: #212529;     /* 配合深背景 */
+    color: #fff;
+    z-index: 1;
+  }
+ .table-fixed { table-layout: fixed; width: 100%; }
+
+/* 只讓 tbody 區塊可以滾動 */
+.history-table-wrap { max-height: 240px; overflow: hidden; }
+.tbody-scroll{
+  display: block;
+  max-height: 190px;      /* 表身高度上限 */
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody tr{
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.catalog{
+  color: #fff;
+  height: 50px;
+  text-align: right;
+  padding-right: 10px;
+  padding-top: 10px;
+  font-size: 20px;
+}
+.catalog i,.history_list i{
+  cursor: pointer;
+  font-size: 20px;
+}
+.history_list{
+  width: 350px;
+  height: 500px;
+  background-color: #292d3e;
+  position: absolute;
+  top: 0;
+  overflow-y: scroll;
+  color: #fff;
+  word-break: break-word;
+}

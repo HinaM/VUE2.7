@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div id="app">
+      
+
+  
+
+
+
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col" v-for="(item,index) in imageList" @mouseover="showName(index)" @mouseleave="hiddenName(index)">
+
+        <div class="card">
+          <img :src="item.src" class="card-img-top" alt="...">
+          <div class="card-body" v-if="item.isShow">
+            <h5 class="card-title" :title="item.name">{{item.name}}</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div @click="handle('div1')">
+      DIV1
+      <a href="#top" @click.stop="handle('div2')">div2</a>
+      <a href="https://www.tibame.com/course/421/mission/10103" @click.prevent.stop="handle('div3')">div3</a>
+    </div>
+
+    
+    <div @click.capture="handle('div4')">
+      DIV4
+      <div @click.capture="handle('div5')">
+        DIV5
+        <div @click="handle('div6')">DIV6</div>
+      </div>
+    </div>
+    
+    <a href="#" @click.once="handle('a tag')">點我</a>
+    
+    <div @click.self="handle('div7')">
+      DIV7
+      <div @click.self="handle('div8')">
+        DIV8
+        <div @click="handle('div9')">DIV9</div>
+      </div>
+    </div>
+
+    <a href="#" @keyup.enter="hand">案</a>
+
+    </div>
+  
+    <script src="vue.js"></script>
+
+</body>
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        {{ me }}
+        {{ title }}
+        <ul>
+            <li v-for="item in list">{{ item }}</li>
+        </ul>
+        <button v-on:click="test">按窩</button>
+        <input type="text" v-model="me">
+        <ul v-if="isShow">
+            <li v-for="i in 5">{{ i }}</li>
+        </ul>
+        
+        <p>已經按了 <span v-bind:style="{color: red}">{{ count }}</span> 次</p>
+        <button @click="counter(); redColor()">+1</button>
+        <button @click="counterMin(); redColor()">-1</button>
+
+        <p v-bind:class="{'is-active': isActive, child: isChild}" class="item">變動ㄉclass</p>
+        <button v-on:click="isActive=!isActive">切換isActive</button>
+        <button v-on:click="isChild=!isChild">切換isChild</button>
+
+        <p v-bind:style="{color: textColor, backgroundColor: bgColor}">變動ㄉ樣式（Style）</p>
+        <button v-on:click="changeColor">隨機變更GBC</button>
+
+        
+    </div>
+    
+    <div id="cir">
+        <svg>
+            <circle cx="100" cy="75" v-bind:r="radius" fill="pink"></circle>
+        </svg>
+        <input type="range" min="0" max="100" v-model="radius">
+    </div>
+
+    <div id="pic">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+              
+                <button type="button" data-bs-target="#carouselExampleCaptions"
+                :data-bs-slide-to="index"
+                :class="{ active: index === 0 }"
+                :aria-current="index === 0 ? 'true' : null"
+                :aria-label="item.desc"
+                v-for="(item, index) in slideList"
+              ></button>
+              
+            </div>
+            <div class="carousel-inner">
+
+              <div class="carousel-item" v-for="(item,index) in slideList" v-bind:class="{active: index == 0}">
+                <img :src="item.src" class="d-block w-100" :alt="item.desc" >
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>{{item.desc}}</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+              
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+
+    <div id="list">
+        姓名：<input type="text" v-model="name">
+        年齡：<input type="text" v-model="age">
+
+        <button v-on:click="add">新增</button>
+        <div v-for="(item,index) in list">
+            姓名：{{list[index].name}}, 年齡：{{list[index].age}}
+            <button v-on:click="del(index)">刪除</button>
+        </div>
+    </div>
+
+    <div id="el">
+        <span ref="count" v-if="show">0</span>
+        <button v-on:click="counter">++</button>
+        <button v-on:click="setShow">是否顯示</button>
+        <button v-on:click="test">測試$el</button>
+    </div>
+
+    <script src="vue.js"></script>
+
+</body>
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</html>

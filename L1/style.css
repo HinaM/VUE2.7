@@ -1,0 +1,21 @@
+div{
+    color: #125445;
+}
+.item{
+    color: aquamarine;
+}
+.child{
+    color: blanchedalmond;
+}
+.is-active{
+    background-color: #491963;
+}
+button{
+    background-color: #712cf9;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 10px !important;
+    padding: 5px;
+    margin: 5px !important;
+}

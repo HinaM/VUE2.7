@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;   
+    /*border: 1px solid #000;*/
+}
+html,body{
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+p,label{
+    margin: 0 !important;
+}
+h1{
+    background-image: linear-gradient(to bottom, transparent 70%, #96b6d0 70%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+input[type="text"]{
+    width: 100%;
+    padding: 5px 10px;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid #4c5464;
+}
+input[type="radio"] + label{
+    width: 100%;
+    border: 1px solid;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 15px;
+    transition: all .2s linear;
+    background-color: #fff;
+}
+input:checked + label{
+    background-color: #82a0b7 !important;
+    color: #f8fafc;
+    border: 1px solid #718ca0;
+}
+#list{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 3%;
+    color: #4c5464;
+    border: 2px solid #dfdfdf;
+    box-shadow: 5px 5px 3px #dfdfdf;
+    background-color: #eff4f8;
+}
+.cart{
+    width: 100%;
+    background-color: #82a0b7;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 8px !important;
+    padding: 8px;
+    margin-bottom: 20px !important;
+    margin-top: 20px !important;
+}
+.btnP{
+    transition: all .2s linear;
+}
+.btnP:hover{
+    background-color: #748ea3 !important;
+}
+table{
+    word-break: break-word;
+    white-space: normal;
+}
+thead th{
+    background-color: #82a0b7 !important;
+    color: #fff !important;
+}
+
+.btnForList .btn{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #635f5f !important;
+    border: none;
+    transition: all .2s linear;
+}
+.btnForList .btn:hover{
+    background-color: #4d4646 !important;
+}
+.btnForList i{
+    font-size: 20px;
+}
+.btnForList .btnCup{
+    
+    position: absolute;
+    top: -15%;
+    right: 0%;
+    height: 25px;
+    width: 25px;
+    font-size: 12px;
+    background-color: #d4b979;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+
+
+}
