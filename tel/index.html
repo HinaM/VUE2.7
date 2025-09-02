@@ -24,6 +24,7 @@
         <div class="no_contact" v-if="telBook === '請輸入'">請輸入</div>
         <div class="no_contact" v-else-if="telBook.length === 0">查無聯絡人</div>
         <div v-else>
+          <div>共有 {{telBook.length}} 位聯絡人</div>
           <div v-for="i in telBook" :key="i">{{i.name}},{{ i.tel }}</div>
         </div>
 
