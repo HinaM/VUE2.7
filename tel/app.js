@@ -41,9 +41,6 @@ var list = new Vue({
                 return result;
             }
 
-
-
-            
             
         }
     },
